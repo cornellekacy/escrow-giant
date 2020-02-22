@@ -5,7 +5,7 @@
   <!-- ================ contact section start ================= -->
 
     <div class="container">
-      <div class="d-none d-sm-block mb-5 pb-4">
+     
 
 
 
@@ -109,5 +109,7 @@ $password = mysqli_real_escape_string($link, $password);
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
+
+<?php include 'footer.php'; ?>
 
   <!-- ================ contact section end ================= -->
