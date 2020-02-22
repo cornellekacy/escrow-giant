@@ -3,16 +3,9 @@
     <!-- breadcrumb start-->
 
   <!-- ================ contact section start ================= -->
-
+<br><br><hr>
     <div class="container">
-     
-
-
-
       <div class="row">
-        <div class="col-12">
-
-        </div>
         <div class="col-lg-3">
       
         </div>

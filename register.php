@@ -7,16 +7,9 @@ use PHPMailer\PHPMailer\Exception;
     <!-- breadcrumb start-->
 
   <!-- ================ contact section start ================= -->
-  <section class="contact-section section_padding">
+  <br><br><hr>
     <div class="container">
-    
-
-
-
       <div class="row">
-        <div class="col-12">
-
-        </div>
         <div class="col-lg-3">
       
         </div>
@@ -189,7 +182,6 @@ mysqli_close($link);
         </div>
       </div>
   
-  </section>
   <!-- ================ contact section end ================= -->
   
     <!-- footer part end-->
