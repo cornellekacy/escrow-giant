@@ -69,7 +69,7 @@ $password = mysqli_real_escape_string($link, $password);
     }
 }
 ?>
-          <form class="" action="" method="post">
+<!--           <form class="" action="" method="post">
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
@@ -94,7 +94,20 @@ $password = mysqli_real_escape_string($link, $password);
       
         </div>
       </div>
-    </div>
+    </div> -->
+    <form action="/action_page.php">
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
 
   <!-- ================ contact section end ================= -->
-<?php include 'footer.php'; ?>
