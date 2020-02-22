@@ -97,3 +97,4 @@ $password = mysqli_real_escape_string($link, $password);
     </div>
   </section>
   <!-- ================ contact section end ================= -->
+<?php include 'footer.php'; ?>

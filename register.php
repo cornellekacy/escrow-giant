@@ -191,3 +191,4 @@ mysqli_close($link);
     </div>
   </section>
   <!-- ================ contact section end ================= -->
+<?php include 'footer.php'; ?>
