@@ -40,6 +40,9 @@ if($sess == 'supperuser'){
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="fund.php"
                                 aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
                                     class="hide-menu">Fund User Account</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="alluser.php"
+                                aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
+                                    class="hide-menu">All User</span></a></li>
 
                         <li class="list-divider"></li>
 
