@@ -43,7 +43,7 @@
                 <!-- Start First Cards -->
                 <!-- *************************************************************** -->
              <table class="table table-striped">
-              <p style="color: red">In-Active Transactions</p>
+              <p style="color: green">All userns in the system.</p>
             <thead>
               <tr>
                 <th>Username</th>
