@@ -1,4 +1,8 @@
-<?php   include 'header.php'; ?>
+<?php   include 'header.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+ ?>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
@@ -63,6 +67,10 @@ if(isset($_POST['save'])){
  $expected = mysqli_real_escape_string($link,$_POST['expected']);
 
  $payment = mysqli_real_escape_string($link,$_POST['payment']);
+  $trn_date = mysqli_real_escape_string($link,$_POST['trn_date']);
+ $sellername = mysqli_real_escape_string($link,$_POST['sname']);
+
+ $sellercountry = mysqli_real_escape_string($link,$_POST['scountry']);
  $description = mysqli_real_escape_string($link,$_POST['description']);
 
 
@@ -88,13 +96,93 @@ else{
     $me = rand();
     $status = 'inactive';
 // Attempt insert query execution
-    $sql = "INSERT INTO transaction (trans_id,name,username,country,email,who,what,price,bitcoinaddress,paypalemail,expected,payment,descript,status) 
-    VALUES ('$me','$name','$username','$country','$email','$who','$what','$price','$bitcoinaddress','$paypalemail','$expected','$payment','$description','$status')";
+    $sql = "INSERT INTO transaction (trans_id,name,username,country,email,who,what,price,bitcoinaddress,paypalemail,expected,payment,trn_date,sellername,sellercountry,descript,status) 
+    VALUES ('$me','$name','$username','$country','$email','$who','$what','$price','$bitcoinaddress','$paypalemail','$expected','$payment','$trn_date','$sellername','$sellercountry','$description','$status')";
     if(mysqli_query($link, $sql)){
         echo "<div class='alert alert-success'>
         <strong>Success!</strong> Transaction Successfully Created.
         </div>";
+
+// Load Composer's autoloader
+require 'autoload.php';
+
+// Instantiation and passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+if (array_key_exists('email', $_POST)) {
+    date_default_timezone_set('Etc/UTC');
+    require 'autoload.php';
+    //Create a new PHPMailer instance
+    $mail = new PHPMailer;
+ $mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );
+    //Tell PHPMailer to use SMTP - requires a local mail server
+    //Faster and safer than using mail()
+    $mail->isSMTP();
+     // $mail->SMTPDebug = SMTP::DEBUG_SERVER; 
+$mail->SMTPSecure = 'tls';
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 587;
+//Whether to use SMTP authentication
+$mail->SMTPAuth = true;
+//Username to use for SMTP authentication - use full email address for gmail
+$mail->Username = "cornellekacy4@gmail.com";
+//Password to use for SMTP authentication
+$mail->Password = "cornellekacy456";
+    //Use a fixed address in your own domain as the from address
+    //**DO NOT** use the submitter's address here as it will be forgery
+    //and will cause your messages to fail SPF checks
+    $mail->setFrom('contact@petflyrelocation.com', $_POST['username']);
+    //Send the message to yourself, or whoever should receive contact for submissions
+    $mail->addAddress($_POST['email'], 'Registration Mail');
+    //Put the submitter's address in a reply-to header
+    //This will fail if the address provided is invalid,
+    //in which case we should ignore the whole request
+  if ($mail->addReplyTo($_POST['email'], $_POST['jkname'])) {
+        $mail->Subject = 'Escrow Giant Inc';
+        //Keep it simple - don't use HTML
+        $mail->isHTML(true);
+           $mail->AddEmbeddedImage('bar.png', 'logoimg', 'bar.png');
+        $mail->AddEmbeddedImage('logo.png', 'logoimg1', 'logo.png');
+            $name = $_POST['name'];
+            $country = $_POST['country'];
+            $price = $_POST['price'];
+            $expected = $_POST['expected'];
+            $payment = $_POST['payment'];
+            
+        $mail->Body = "
+                 <img src=\"cid:logoimg1\" />
+                    <h3>HELLO<strong style='color: rgb(255,153,0);'></strong> <strong style='text-transform: capitalize; color: rgb(255,153,0);'> $username, </strong> You Started a new Transaction</h3>
+                    <p>A new transaction has been started on your account. here are the details</p>
+                    <br><br>
+
+                     <strong>FullName</strong>: $name<br>
+                     <strong>Country</strong>: $country<br>
+                     <strong>Amount to pay</strong>: $price<br>
+                     <strong>Delivery date</strong>: $country<br>
+                     <strong>Payment Method</strong>: $payment<br>
+                    <br><br>
+                        ";
+        //Send the message, check for errors
+        if (!$mail->send()) {
+            //The reason for failing to send will be in $mail->ErrorInfo
+            //but you shouldn't display errors to users - process the error, log it on your server.
+            $msg = 'Sorry, something went wrong. Please try again later.'. $mail->ErrorInfo;
+        } else {
+            // echo "<script>alert('Message Successfully Sent we will get back to you shortly');
+            // window.location.href = 'mail.php'</script>";
+        }
+    } else {
+        $msg = 'Invalid email address, message ignored.';
+    }
+}
         echo '   <script> window.location = "inactive.php";</script>';
+
 
 
 //phpmailer ends here
@@ -109,8 +197,8 @@ else{
 mysqli_close($link);
 
 ?>
-<?php  ?>
                     <div class="card">
+
                             <div class="card-body">
                                 <h4 class="card-title">Start A New Transaction</h4>
                                 <form class="mt-4" method="post">
@@ -178,6 +266,21 @@ mysqli_close($link);
                                             <option value="Bitcoin">Bitcoin</option>
                                             <option value="Paypal">Paypal</option>
                                         </select>
+                                    </div>
+                                           <div class="form-group">
+                                    <label>Transaction Date</label>
+                                        <input type="date" class="form-control"  id="maxval"
+                                            aria-describedby="maxval" name="trn_date" >
+                                    </div>
+                                            <div class="form-group">
+                                    <label>Seller Name</label>
+                                        <input type="text" class="form-control"  id="maxval"
+                                            aria-describedby="maxval" name="sname" >
+                                    </div>
+                                            <div class="form-group">
+                                    <label>Seller Country</label>
+                                        <input type="text" class="form-control"  id="maxval"
+                                            aria-describedby="maxval" name="scountry" >
                                     </div>
                                        <div class="form-group">
                                          <label>Description, Full Address and Phone Number</label>

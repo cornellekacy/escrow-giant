@@ -82,7 +82,7 @@ $test = $_SESSION['username'];
                     <i class="glyphicon glyphicon-trash icon-white"></i>
                     Make Payment
                   </a>
-                  <td><a class="btn btn-danger" href="delete_track.php?id=<?php echo $row["user_id"]; ?>">
+                  <td><a class="btn btn-danger" href="delete_user.php?id=<?php echo $row["transaction_id"]; ?>">
                     <i class="glyphicon glyphicon-trash icon-white"></i>
                     Delete
                   </a>

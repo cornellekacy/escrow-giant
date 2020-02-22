@@ -77,7 +77,11 @@
                   <td><?php echo $row["expected"] ?></td>
                   <td> <?php echo $row["payment"] ?></td>
 
-                  <td><a class="btn btn-danger" href="delete_track.php?id=<?php echo $row["user_id"]; ?>">
+                   <td><a class="btn btn-danger" href="viewfull.php?id=<?php echo $row["transaction_id"]; ?>">
+                    <i class="glyphicon glyphicon-trash icon-white"></i>
+                    View
+                  </a>
+                  <td><a class="btn btn-danger" href="deleteall.php?id=<?php echo $row["transaction_id"]; ?>">
                     <i class="glyphicon glyphicon-trash icon-white"></i>
                     Delete
                   </a>

@@ -96,7 +96,7 @@
               die("Connection failed: " . mysqli_connect_error());
             }
             $sses = $_SESSION['username'];
-            $sql = "SELECT * FROM transaction where username = '$sses'";
+            $sql = "SELECT SUM(funds) FROM transaction where username = '$sses'";
             $result = mysqli_query($link, $sql);
 
             if (mysqli_num_rows($result) > 0) {
@@ -104,7 +104,7 @@
               while($row = mysqli_fetch_assoc($result)) {
 
                 
-                echo $row["funds"];
+                echo $row["SUM(funds)"]++;
 
             }
           } else {

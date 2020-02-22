@@ -54,9 +54,12 @@ CREATE TABLE `transaction` (
   `paypalemail` varchar(255) NOT NULL,
   `expected` varchar(255) NOT NULL,
   `payment` varchar(255) NOT NULL,
+  `trn_date` varchar(255) NOT NULL,
+  `sellername` varchar(255) NOT NULL,
+  `sellercountry` varchar(255) NOT NULL,
   `descript` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `dstatus` varchar(255) NOT NULL,
-  `funds` varchar(255) NOT NULL,
+  `funds` varchar(255) DEFAULT 0.00,
   PRIMARY KEY (`transaction_id`))
 ENGINE = InnoDB;

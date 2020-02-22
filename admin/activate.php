@@ -82,7 +82,8 @@
                     <i class="glyphicon glyphicon-trash icon-white"></i>
                     Activate
                   </a>
-                  <td><a class="btn btn-danger" href="delete_track.php?id=<?php echo $row["user_id"]; ?>">
+                  <td><a class="btn btn-danger" href="deleteactivate.php?id=<?php echo $row["transaction
+                  _id"]; ?>">
                     <i class="glyphicon glyphicon-trash icon-white"></i>
                     Delete
                   </a>

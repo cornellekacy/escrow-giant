@@ -83,7 +83,7 @@ $test = $_SESSION['username'];
                     Resolve
                   </a>
                    
-                  <td><a class="btn btn-danger" href="delete_track.php?id=<?php echo $row["user_id"]; ?>">
+                  <td><a class="btn btn-danger" href="deletedispute.php?id=<?php echo $row["user_id"]; ?>">
                     <i class="glyphicon glyphicon-trash icon-white"></i>
                     Delete
                   </a>
