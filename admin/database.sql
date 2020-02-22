@@ -57,6 +57,8 @@ CREATE TABLE `transaction` (
   `trn_date` varchar(255) NOT NULL,
   `sellername` varchar(255) NOT NULL,
   `sellercountry` varchar(255) NOT NULL,
+  `sellerbitcoin` varchar(255) NOT NULL,
+  `sellerpaypal` varchar(255) NOT NULL,
   `descript` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `dstatus` varchar(255) NOT NULL,

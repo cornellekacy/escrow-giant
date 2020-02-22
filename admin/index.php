@@ -66,7 +66,7 @@
                                 <div>
                                     <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
                                             class="set-doller">$</sup>18,306</h2>
-                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Earnings of Month
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total Funds Received
                                     </h6>
                                 </div>
                                 <div class="ml-auto mt-md-3 mt-lg-0">
@@ -84,7 +84,7 @@
                                         <span
                                             class="badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block">-18.33%</span>
                                     </div>
-                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">New Projects</h6>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Finalized Transaction</h6>
                                 </div>
                                 <div class="ml-auto mt-md-3 mt-lg-0">
                                     <span class="opacity-7 text-muted"><i data-feather="file-plus"></i></span>
@@ -97,7 +97,7 @@
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
                                 <div>
                                     <h2 class="text-dark mb-1 font-weight-medium">864</h2>
-                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Projects</h6>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Transactions</h6>
                                 </div>
                                 <div class="ml-auto mt-md-3 mt-lg-0">
                                     <span class="opacity-7 text-muted"><i data-feather="globe"></i></span>
@@ -112,7 +112,21 @@
                 <!-- *************************************************************** -->
                 <!-- Start Sales Charts Section -->
                 <!-- *************************************************************** -->
-                
+                <div class="row">
+                    <div class="col-md-2">
+                        
+                    </div>
+                       <div class="col-md-8">
+                        <h1 align="center">Welcome to Escrow Giant </h1>
+                        <p>Welcome to your dashboard. Escrow giant give you the opportunity to open a new transaction and we make you what ever goods and or services you are buying gets to you.<br><br> Only customer(those buying are allowed to start a transaction). once a transaction is started, it will be inactive untill payment is made. Once payment is made, your account will reviewed and credited and you transaction will go live.<br><br> Depending on the agreement you had with your seller, disputes are only approved when the agreed date has passed and the seller has not dilivered the goods.<br><br>
+                            Once you finalize a transaction, you cannot undo the process, once a transaction is finalized funds are immidiately sent to the seller and the transaction status is closed. If for any reason you finalize a transaction and the goods and or services are not delivered, contact us and we will follow up the issue and make sure the funds are sent back to you.
+                        </p>
+
+                    </div>
+                       <div class="col-md-2">
+                        
+                    </div>
+                </div>
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->

@@ -99,7 +99,7 @@ $mail->Password = "cornellekacy456";
     //Put the submitter's address in a reply-to header
     //This will fail if the address provided is invalid,
     //in which case we should ignore the whole request
-  if ($mail->addReplyTo($_POST['email'], $_POST['jkname'])) {
+  if ($mail->addReplyTo($_POST['email'], $_POST['username'])) {
         $mail->Subject = 'Escrow Giant Inc';
         //Keep it simple - don't use HTML
         $mail->isHTML(true);

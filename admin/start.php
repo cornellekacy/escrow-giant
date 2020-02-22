@@ -71,6 +71,9 @@ if(isset($_POST['save'])){
  $sellername = mysqli_real_escape_string($link,$_POST['sname']);
 
  $sellercountry = mysqli_real_escape_string($link,$_POST['scountry']);
+  $sellerbitcoin = mysqli_real_escape_string($link,$_POST['sbitcoin']);
+
+ $sellerpaypal = mysqli_real_escape_string($link,$_POST['spaypal']);
  $description = mysqli_real_escape_string($link,$_POST['description']);
 
 
@@ -96,8 +99,8 @@ else{
     $me = rand();
     $status = 'inactive';
 // Attempt insert query execution
-    $sql = "INSERT INTO transaction (trans_id,name,username,country,email,who,what,price,bitcoinaddress,paypalemail,expected,payment,trn_date,sellername,sellercountry,descript,status) 
-    VALUES ('$me','$name','$username','$country','$email','$who','$what','$price','$bitcoinaddress','$paypalemail','$expected','$payment','$trn_date','$sellername','$sellercountry','$description','$status')";
+    $sql = "INSERT INTO transaction (trans_id,name,username,country,email,who,what,price,bitcoinaddress,paypalemail,expected,payment,trn_date,sellername,sellercountry,sellerbitcoin,sellerpaypal,descript,status) 
+    VALUES ('$me','$name','$username','$country','$email','$who','$what','$price','$bitcoinaddress','$paypalemail','$expected','$payment','$trn_date','$sellername','$sellercountry','$sellerbitcoin','$sellerpaypal','$description','$status')";
     if(mysqli_query($link, $sql)){
         echo "<div class='alert alert-success'>
         <strong>Success!</strong> Transaction Successfully Created.
@@ -154,7 +157,15 @@ $mail->Password = "cornellekacy456";
             $price = $_POST['price'];
             $expected = $_POST['expected'];
             $payment = $_POST['payment'];
-            
+
+            $trn_date =$_POST['trn_date'];
+            $sellername = $_POST['sname'];
+
+            $sellercountry = $_POST['scountry'];
+            $sellerbitcoin = $_POST['sbitcoin'];
+
+            $sellerpaypal = $_POST['spaypal'];
+             $expected = $_POST['expected'];
         $mail->Body = "
                  <img src=\"cid:logoimg1\" />
                     <h3>HELLO<strong style='color: rgb(255,153,0);'></strong> <strong style='text-transform: capitalize; color: rgb(255,153,0);'> $username, </strong> You Started a new Transaction</h3>
@@ -167,6 +178,18 @@ $mail->Password = "cornellekacy456";
                      <strong>Delivery date</strong>: $country<br>
                      <strong>Payment Method</strong>: $payment<br>
                     <br><br>
+
+
+                    <p>Here is The Sellers Details</p><br><br>
+                       <strong>Seller Name</strong>: $sellername<br>
+                     <strong>Sellers Country</strong>: $sellercountry<br>
+                     <strong>Bitcoin Wallet Address</strong>: $sellerbitcoin<br>
+                     <strong>Paypal Email Address</strong>: $sellerpaypal<br>
+                     <strong>Completion Time</strong>: $expected<br>
+                     <strong>Date Started</strong>: $trn_date<br>
+                     <br>
+                     <strong> <p>Transaction Is Inactive Pending payment</p></strong>
+                    
                         ";
         //Send the message, check for errors
         if (!$mail->send()) {
@@ -281,6 +304,16 @@ mysqli_close($link);
                                     <label>Seller Country</label>
                                         <input type="text" class="form-control"  id="maxval"
                                             aria-describedby="maxval" name="scountry" >
+                                    </div>
+                                    <div class="form-group">
+                                    <label>Seller Bitcoin Address(Wallet to send funds when transaction is complete)</label>
+                                        <input type="text" class="form-control"  id="maxval"
+                                            aria-describedby="maxval" name="sbitcoin" >
+                                    </div>
+                                     <div class="form-group">
+                                    <label>Seller Paypal Address(Paypal email to send funds when transaction is complete)</label>
+                                        <input type="Email" class="form-control"  id="maxval"
+                                            aria-describedby="maxval" name="spaypal" >
                                     </div>
                                        <div class="form-group">
                                          <label>Description, Full Address and Phone Number</label>
