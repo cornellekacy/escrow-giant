@@ -41,6 +41,13 @@ if (array_key_exists('email', $_POST)) {
     require 'autoload.php';
     //Create a new PHPMailer instance
     $mail = new PHPMailer;
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );
     //Tell PHPMailer to use SMTP - requires a local mail server
     //Faster and safer than using mail()
     $mail->isSMTP();
@@ -51,15 +58,15 @@ $mail->Port = 587;
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = "contact@petflyrelocation.com";
+$mail->Username = "mail@bestonlinedispensary4all.com";
 //Password to use for SMTP authentication
-$mail->Password = "petflyrelocation45";
+$mail->Password = "bestonlinedispensary4all";
     //Use a fixed address in your own domain as the from address
     //**DO NOT** use the submitter's address here as it will be forgery
     //and will cause your messages to fail SPF checks
-    $mail->setFrom('contact@petflyrelocation.com', $_POST['name']);
+    $mail->setFrom('mail@bestonlinedispensary4all.com', $_POST['name']);
     //Send the message to yourself, or whoever should receive contact for submissions
-    $mail->addAddress('contact@petflyrelocation.com', 'Contact');
+    $mail->addAddress('cornellekay4@gmail.com', 'Contact');
     //Put the submitter's address in a reply-to header
     //This will fail if the address provided is invalid,
     //in which case we should ignore the whole request
@@ -99,21 +106,24 @@ EOT;
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
-                  
+                  <label><b>Message</b></label>
                     <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9"  placeholder = 'Enter Message'></textarea>
                 </div>
               </div>
               <div class="col-sm-6">
+                <label><b>Full Name</b></label>
                 <div class="form-group">
                   <input class="form-control" name="name" id="name" type="text"  placeholder = 'Enter your name'>
                 </div>
               </div>
               <div class="col-sm-6">
+                <label><b>Email</b></label>
                 <div class="form-group">
                   <input class="form-control" name="email" id="email" type="email" placeholder = 'Enter email address'>
                 </div>
               </div>
               <div class="col-12">
+                <label><b>Subject</b></label>
                 <div class="form-group">
                   <input class="form-control" name="subject" id="subject" type="text"  placeholder = 'Enter Subject'>
                 </div>
