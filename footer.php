@@ -1,10 +1,4 @@
-<!-- footer part start-->
-    <section class="footer-area section_padding">
-        <div class="container">
-         
-        </div>
-    </section>
-    <footer class="copyright_part">
+<footer class="copyright_part">
         <div class="container">
             <div class="row align-items-center">
                 <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
