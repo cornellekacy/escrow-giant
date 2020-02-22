@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\Exception;
   <!-- ================ contact section start ================= -->
   <section class="contact-section section_padding">
     <div class="container">
-      <div class="d-none d-sm-block mb-5 pb-4">
+    
 
 
 
@@ -188,7 +188,34 @@ mysqli_close($link);
       
         </div>
       </div>
-    </div>
+  
   </section>
   <!-- ================ contact section end ================= -->
-<?php include 'footer.php'; ?>
+  
+    <!-- footer part end-->
+
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="js/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="js/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="js/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="js/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+
+
+    
+</body>
+
+</html>

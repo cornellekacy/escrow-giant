@@ -69,7 +69,7 @@ $password = mysqli_real_escape_string($link, $password);
     }
 }
 ?>
-<!--           <form class="" action="" method="post">
+         <form class="" action="" method="post">
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
@@ -94,22 +94,35 @@ $password = mysqli_real_escape_string($link, $password);
       
         </div>
       </div>
-    </div> -->
-    <form action="/action_page.php">
-  <div class="form-group">
-    <label for="email">Email address:</label>
-    <input type="email" class="form-control" id="email">
+    </div>
   </div>
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" class="form-control" id="pwd">
-  </div>
-  <div class="checkbox">
-    <label><input type="checkbox"> Remember me</label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+  
+    <!-- footer part end-->
 
-<?php include 'footer.php'; ?>
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="js/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="js/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="js/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="js/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+
+
+    
+</body>
+
+</html>
 
   <!-- ================ contact section end ================= -->

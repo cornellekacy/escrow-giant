@@ -21,7 +21,7 @@
   <!-- ================ contact section start ================= -->
   <section class="contact-section section_padding">
     <div class="container">
-      <div class="d-none d-sm-block mb-5 pb-4">
+
 
     <?php
 // Import PHPMailer classes into the global namespace
@@ -158,7 +158,6 @@ EOT;
           </div>
         </div>
       </div>
-    </div>
   </section>
   <!-- ================ contact section end ================= -->
 
