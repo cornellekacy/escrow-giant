@@ -3,7 +3,7 @@
     <!-- breadcrumb start-->
 
   <!-- ================ contact section start ================= -->
-  <section class="contact-section section_padding">
+
     <div class="container">
       <div class="d-none d-sm-block mb-5 pb-4">
 
@@ -95,6 +95,6 @@ $password = mysqli_real_escape_string($link, $password);
         </div>
       </div>
     </div>
-  </section>
+
   <!-- ================ contact section end ================= -->
 <?php include 'footer.php'; ?>
