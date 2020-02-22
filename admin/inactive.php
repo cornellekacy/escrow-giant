@@ -38,25 +38,29 @@
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- *************************************************************** -->
-                <!-- Start First Cards -->
-                <!-- *************************************************************** -->
-             <table class="table table-striped">
-              <p style="color: red">In-Active Transactions, please make payent to activate transaction</p>
-            <thead>
-              <tr>
-                <th>Transaction ID</th>
-                <th>FullName</th>
-                <th>Amount</th>
-                <th>Email</th>
-                <th>Delivery Date</th>
-                <th>Payment Method</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-             <?php
+
+                            <!-- multi-column ordering -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                 <p style="color: red">In-Active Transactions, please make payent to activate transaction</p>
+                                <div class="table-responsive">
+                                    <table id="multi_col_order"
+                                        class="table table-striped table-bordered display no-wrap" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Transaction ID</th>
+                                                <th>FullName</th>
+                                                <th>Amount</th>
+                                                <th>Email</th>
+                                                <th>Delivery Date</th>
+                                                <th>Payment Method</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                       <?php
              include 'conn.php';
 // Check connection
              if (!$link) {
@@ -69,8 +73,7 @@ $test = $_SESSION['username'];
             if (mysqli_num_rows($result) > 0) {
     // output data of each row
               while($row = mysqli_fetch_assoc($result)) {?>
-
-                <tr>
+                                            <tr>
                   <td><?php echo $row["trans_id"] ?></td>
                   <td> <?php echo $row["name"] ?></td>
                   <td>$<?php echo $row["price"] ?></td>
@@ -83,14 +86,14 @@ $test = $_SESSION['username'];
                     <i class="glyphicon glyphicon-trash icon-white"></i>
                     Make Payment
                   </a>
+                </td>
                   <td><a class="btn btn-danger" href="deleteinactive.php?id=<?php echo $row["user_id"]; ?>">
                     <i class="glyphicon glyphicon-trash icon-white"></i>
                     Delete
                   </a>
+                </td>
               </tr>
-
-
-
+                                        
               <?php 
 
             }
@@ -100,17 +103,16 @@ $test = $_SESSION['username'];
 
           mysqli_close($link);
           ?>
-        </tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          </div>
 
-      </table> 
-                <!-- *************************************************************** -->
-                <!-- End First Cards -->
-                <!-- *************************************************************** -->
-                <!-- *************************************************************** -->
-                <!-- Start Sales Charts Section -->
-                <!-- *************************************************************** -->
-                
-            </div>
+
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->

@@ -116,7 +116,7 @@ mysqli_close($link);
                                 <form class="mt-4" method="post">
                                     <div class="form-group">
                                  
-                                        <input type="text" class="form-control" name="id"  id="maxval"
+                                        <input type="hidden" class="form-control" name="id"  id="maxval"
                                             aria-describedby="maxval" value="<?php echo $data["transaction_id"] ?>">
                                     </div>
                                     <div class="form-group">

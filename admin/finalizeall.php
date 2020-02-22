@@ -42,9 +42,23 @@
                 <!-- *************************************************************** -->
                 <!-- Start First Cards -->
                 <!-- *************************************************************** -->
-             <table class="table table-striped">
-            <thead>
-              <tr>
+         <!--  -->
+                <!-- *************************************************************** -->
+                <!-- End First Cards -->
+                <!-- *************************************************************** -->
+                <!-- *************************************************************** -->
+                <!-- Start Sales Charts Section -->
+                <!-- *************************************************************** -->
+                                             <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                 <p style="color: red">Disputes Pending Resolution</p>
+                                <div class="table-responsive">
+                                    <table id="multi_col_order"
+                                        class="table table-striped table-bordered display no-wrap" style="width:100%">
+                                        <thead>
+                                           <tr>
                 <th>Transaction ID</th>
                 <th>FullName</th>
                 <th>Amount</th>
@@ -53,14 +67,15 @@
                 <th>Payment Method</th>
                 <th>Action</th>
               </tr>
-            </thead>
-            <tbody>
-             <?php
+                                        </thead>
+                                        <tbody>
+                                                       <?php
              include 'conn.php';
 // Check connection
              if (!$link) {
               die("Connection failed: " . mysqli_connect_error());
             }
+
 $test = $_SESSION['username'];
             $sql = "SELECT * FROM transaction where  status='finalized'";
             $result = mysqli_query($link, $sql);
@@ -68,7 +83,6 @@ $test = $_SESSION['username'];
             if (mysqli_num_rows($result) > 0) {
     // output data of each row
               while($row = mysqli_fetch_assoc($result)) {?>
-
                 <tr>
                   <td><?php echo $row["trans_id"] ?></td>
                   <td> <?php echo $row["name"] ?></td>
@@ -77,15 +91,13 @@ $test = $_SESSION['username'];
                   <td><?php echo $row["expected"] ?></td>
                   <td> <?php echo $row["payment"] ?></td>
 
-                
-                  <td><a class="btn btn-danger" href="deletefinalizeall.php?id=<?php echo $row["user_id"]; ?>">
+                  <td><a class="btn btn-danger" href="deletefinalizeall.php?id=<?php echo $row["transaction_id"]; ?>">
                     <i class="glyphicon glyphicon-trash icon-white"></i>
                     Delete
                   </a>
+                </td>
               </tr>
-
-
-
+                                        
               <?php 
 
             }
@@ -95,15 +107,13 @@ $test = $_SESSION['username'];
 
           mysqli_close($link);
           ?>
-        </tbody>
-      </table> 
-                <!-- *************************************************************** -->
-                <!-- End First Cards -->
-                <!-- *************************************************************** -->
-                <!-- *************************************************************** -->
-                <!-- Start Sales Charts Section -->
-                <!-- *************************************************************** -->
-                
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->

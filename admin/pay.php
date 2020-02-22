@@ -52,7 +52,7 @@ if($_GET['id']) {
                    </div> 
                    <div class="col-md-6">
                        <h2 align="center">Make Payment</h2>
-                       <p>Once we recieve payment we will start you transaction monitor the seller/buyer, once he/she finalazes the transaction, the money will be sent to him/her. If not we will refund the money back to you.</p>
+                       <p align="center">Once we recieve payment we will start your transaction monitor the seller and buyer, once he or she finalazes the transaction, the money will be sent to him/her. If not we will refund the money back to you.</p>
                    
                    </div> 
                    <div class="col-md-3">

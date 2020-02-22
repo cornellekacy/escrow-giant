@@ -32,31 +32,28 @@
                    
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- *************************************************************** -->
-                <!-- Start First Cards -->
-                <!-- *************************************************************** -->
-             <table class="table table-striped">
-              <p style="color: green">Active Transactions</p>
-            <thead>
-              <tr>
-                <th>Transaction ID</th>
-                <th>FullName</th>
-                <th>Amount</th>
-                <th>Email</th>
-                <th>Delivery Date</th>
-                <th>Payment Method</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-             <?php
+                       <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                              <p style="color: green">Active Transactions</p>
+                                <div class="table-responsive">
+                                    <table id="multi_col_order"
+                                        class="table table-striped table-bordered display no-wrap" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Transaction ID</th>
+                                                <th>FullName</th>
+                                                <th>Amount</th>
+                                                <th>Email</th>
+                                                <th>Delivery Date</th>
+                                                <th>Payment Method</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                       <?php
              include 'conn.php';
 // Check connection
              if (!$link) {
@@ -69,8 +66,7 @@ $test = $_SESSION['username'];
             if (mysqli_num_rows($result) > 0) {
     // output data of each row
               while($row = mysqli_fetch_assoc($result)) {?>
-
-                <tr>
+                                            <tr>
                   <td><?php echo $row["trans_id"] ?></td>
                   <td> <?php echo $row["name"] ?></td>
                   <td>$<?php echo $row["price"] ?></td>
@@ -79,22 +75,18 @@ $test = $_SESSION['username'];
                   <td> <?php echo $row["payment"] ?></td>
 
                  
-                  <td><a class="btn btn-primary" href="opendispute.php?id=<?php echo $row["transaction_id"]; ?>">
+                  <td><a class="btn btn-primary" href="pay.php?id=<?php echo $row["transaction_id"]; ?>">
                     <i class="glyphicon glyphicon-trash icon-white"></i>
-                    Dispute
+                    Make Payment
                   </a>
-                   <td><a class="btn btn-success" href="approve.php?id=<?php echo $row["transaction_id"]; ?>">
-                    <i class="glyphicon glyphicon-trash icon-white"></i>
-                    Finalize
-                  </a>
-                  <td><a class="btn btn-danger" href="deleteactive.php?id=<?php echo $row["transaction_id"]; ?>">
+                </td>
+                  <td><a class="btn btn-danger" href="deleteinactive.php?id=<?php echo $row["transaction_id"]; ?>">
                     <i class="glyphicon glyphicon-trash icon-white"></i>
                     Delete
                   </a>
+                </td>
               </tr>
-
-
-
+                                        
               <?php 
 
             }
@@ -104,15 +96,13 @@ $test = $_SESSION['username'];
 
           mysqli_close($link);
           ?>
-        </tbody>
-      </table> 
-                <!-- *************************************************************** -->
-                <!-- End First Cards -->
-                <!-- *************************************************************** -->
-                <!-- *************************************************************** -->
-                <!-- Start Sales Charts Section -->
-                <!-- *************************************************************** -->
-                
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
