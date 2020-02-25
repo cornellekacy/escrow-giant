@@ -27,7 +27,7 @@ if($sess == 'supperuser'){
                                     class="hide-menu">Payment Methods</span></a></li>
                          <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="payment-details.php"
                                 aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
-                                    class="hide-menu">Payment Details</span></a></li>
+                                    class="hide-menu">Set Payment Details</span></a></li>
                          <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="activate.php"
                                 aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
                                     class="hide-menu">activate Transaction</span></a></li>
