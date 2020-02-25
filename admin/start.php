@@ -63,8 +63,8 @@ if(isset($_POST['save'])){
   $currency = mysqli_real_escape_string($link,$_POST['currency']);
  $price = mysqli_real_escape_string($link,$_POST['price']);
 
- $bitcoinaddress = mysqli_real_escape_string($link,$_POST['bitcoinaddress']);
- $paypalemail = mysqli_real_escape_string($link,$_POST['paypalemail']);
+ $bmethod = mysqli_real_escape_string($link,$_POST['bmethod']);
+ $baddress = mysqli_real_escape_string($link,$_POST['paypalemail']);
  $expected = mysqli_real_escape_string($link,$_POST['expected']);
 
  $payment = mysqli_real_escape_string($link,$_POST['payment']);
@@ -100,8 +100,8 @@ else{
     $me = rand();
     $status = 'inactive';
 // Attempt insert query execution
-    $sql = "INSERT INTO transaction (trans_id,name,username,country,email,who,what,currency,price,bitcoinaddress,paypalemail,expected,payment,trn_date,sellername,sellercountry,smethod,saddress,descript,status) 
-    VALUES ('$me','$name','$username','$country','$email','$who','$what','$currency','$price','$bitcoinaddress','$paypalemail','$expected','$payment','$trn_date','$sellername','$sellercountry','$smethod','$saddress','$description','$status')";
+    $sql = "INSERT INTO transaction (trans_id,name,username,country,email,who,what,currency,price,bmethod,baddress,expected,payment,trn_date,sellername,sellercountry,smethod,saddress,descript,status) 
+    VALUES ('$me','$name','$username','$country','$email','$who','$what','$currency','$price','$bmethod','$baddress','$expected','$payment','$trn_date','$sellername','$sellercountry','$smethod','$saddress','$description','$status')";
     if(mysqli_query($link, $sql)){
         echo "<div class='alert alert-success'>
         <strong>Success!</strong> Transaction Successfully Created.
@@ -266,24 +266,30 @@ mysqli_close($link);
                                             <option value="$ USD">USD</option>
                                             <option value="€ EUR">EUR</option>
                                             <option value="$ AUD">AUD</option>
-                                             <option value="£ POUND">POUND</option>
+                                             <option value="£ GBP">GBP</option>
                                         </select>
                                     </div>
+
                                        <div class="form-group">
                                     <label>Amount to pay</label>
                                         <input type="text" class="form-control" id="maxval"
                                             aria-describedby="maxval" name="price" >
                                     </div>
-                                        <div class="form-group">
-                                    <label>Refund Bitcoin Wallet Address</label>
-                                        <input type="text" class="form-control" id="maxval"
-                                            aria-describedby="maxval" name="bitcoinaddress" >
+                                        <div class="form-group mb-4">
+                                        <label for="exampleFormControlSelect1">Buyer Payment Method</label>
+                                        <select class="form-control" name="bmethod"  id="city">
+                                            <option value="Bitcoin">Bitcoin</option>
+                                            <option value="Paypal">Paypal</option>
+                                        </select>
                                     </div>
-                                          <div class="form-group">
-                                    <label>Refund Paypal Email Address</label>
-                                        <input type="email" class="form-control"  id="maxval"
-                                            aria-describedby="maxval" name="paypalemail" >
-                                    </div>
+
+                                  <div class="form-group">
+                                    <label>Buyer Refund Address</label>
+                                        <input type="text" class="form-control"  name="baddress" 
+                                            aria-describedby="maxval" name="baddress" >
+                                    </div> 
+
+                           
 
                                       <div class="form-group mb-4">
                                         <label for="exampleFormControlSelect1">Expected delivery Date/time</label>
@@ -355,7 +361,7 @@ mysqli_close($link);
                                     </div>
                                      <div class="form-group">
                                     <label>seller address to receive funds</label>
-                                        <input type="Email" class="form-control"  id="maxval"
+                                        <input type="text" class="form-control"  id="maxval"
                                             aria-describedby="maxval" name="saddress" >
                                     </div>
 
