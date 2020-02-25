@@ -93,7 +93,7 @@ if($_GET['id']) {
 
           mysqli_close($link);
           ?></strong></p>
-                       <p>bitcoin You Will Pay <b>$<?php echo $data["price"] ?> = <?php $url = "https://blockchain.info/stats?format=json";
+                       <p>bitcoin You Will Pay <b><?php echo $data["currency"];?> <?php echo $data["price"] ?> = <?php $url = "https://blockchain.info/stats?format=json";
           $stats = json_decode(file_get_contents($url), true);
           $btcValue = $stats['market_price_usd'];
           $usdCost =   $data["price"];
@@ -127,7 +127,7 @@ if($_GET['id']) {
 
           mysqli_close($link);
           ?></strong></p>
-                       <p>Paypal You Will Pay <b>$<?php echo $data["price"];?></b></p>
+                       <p>Paypal You Will Pay <b><?php echo $data["currency"];?> <?php echo $data["price"];?></b></p>
                    </div> 
                    <div class="col-md-3">
                        

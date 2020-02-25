@@ -60,6 +60,7 @@ if(isset($_POST['save'])){
 
  $who = mysqli_real_escape_string($link,$_POST['who']);
  $what = mysqli_real_escape_string($link,$_POST['what']);
+  $currency = mysqli_real_escape_string($link,$_POST['currency']);
  $price = mysqli_real_escape_string($link,$_POST['price']);
 
  $bitcoinaddress = mysqli_real_escape_string($link,$_POST['bitcoinaddress']);
@@ -71,9 +72,9 @@ if(isset($_POST['save'])){
  $sellername = mysqli_real_escape_string($link,$_POST['sname']);
 
  $sellercountry = mysqli_real_escape_string($link,$_POST['scountry']);
-  $sellerbitcoin = mysqli_real_escape_string($link,$_POST['sbitcoin']);
+  $smethod = mysqli_real_escape_string($link,$_POST['smethod']);
 
- $sellerpaypal = mysqli_real_escape_string($link,$_POST['spaypal']);
+ $saddress = mysqli_real_escape_string($link,$_POST['saddress']);
  $description = mysqli_real_escape_string($link,$_POST['description']);
 
 
@@ -99,8 +100,8 @@ else{
     $me = rand();
     $status = 'inactive';
 // Attempt insert query execution
-    $sql = "INSERT INTO transaction (trans_id,name,username,country,email,who,what,price,bitcoinaddress,paypalemail,expected,payment,trn_date,sellername,sellercountry,sellerbitcoin,sellerpaypal,descript,status) 
-    VALUES ('$me','$name','$username','$country','$email','$who','$what','$price','$bitcoinaddress','$paypalemail','$expected','$payment','$trn_date','$sellername','$sellercountry','$sellerbitcoin','$sellerpaypal','$description','$status')";
+    $sql = "INSERT INTO transaction (trans_id,name,username,country,email,who,what,currency,price,bitcoinaddress,paypalemail,expected,payment,trn_date,sellername,sellercountry,smethod,saddress,descript,status) 
+    VALUES ('$me','$name','$username','$country','$email','$who','$what','$currency','$price','$bitcoinaddress','$paypalemail','$expected','$payment','$trn_date','$sellername','$sellercountry','$smethod','$saddress','$description','$status')";
     if(mysqli_query($link, $sql)){
         echo "<div class='alert alert-success'>
         <strong>Success!</strong> Transaction Successfully Created.
@@ -162,9 +163,9 @@ $mail->Password = "cornellekacy456";
             $sellername = $_POST['sname'];
 
             $sellercountry = $_POST['scountry'];
-            $sellerbitcoin = $_POST['sbitcoin'];
+            $smethod = $_POST['smethod'];
 
-            $sellerpaypal = $_POST['spaypal'];
+            $saddress = $_POST['saddress'];
              $expected = $_POST['expected'];
         $mail->Body = "
                  <img src=\"cid:logoimg1\" />
@@ -183,8 +184,8 @@ $mail->Password = "cornellekacy456";
                     <p>Here is The Sellers Details</p><br><br>
                        <strong>Seller Name</strong>: $sellername<br>
                      <strong>Sellers Country</strong>: $sellercountry<br>
-                     <strong>Bitcoin Wallet Address</strong>: $sellerbitcoin<br>
-                     <strong>Paypal Email Address</strong>: $sellerpaypal<br>
+                     <strong>Seller Payment Method Address</strong>: $smethod<br>
+                     <strong>Seller  Address</strong>: $saddress<br>
                      <strong>Completion Time</strong>: $expected<br>
                      <strong>Date Started</strong>: $trn_date<br>
                      <br>
@@ -259,8 +260,17 @@ mysqli_close($link);
                                             <option value="Services">Services</option>
                                         </select>
                                     </div>
+                                      <div class="form-group mb-4">
+                                        <label for="exampleFormControlSelect1">Currency</label>
+                                        <select class="form-control" name="currency" id="exampleFormControlSelect1">
+                                            <option value="$ USD">USD</option>
+                                            <option value="€ EUR">EUR</option>
+                                            <option value="$ AUD">AUD</option>
+                                             <option value="£ POUND">POUND</option>
+                                        </select>
+                                    </div>
                                        <div class="form-group">
-                                    <label>Price in USD</label>
+                                    <label>Amount to pay</label>
                                         <input type="text" class="form-control" id="maxval"
                                             aria-describedby="maxval" name="price" >
                                     </div>
@@ -278,9 +288,40 @@ mysqli_close($link);
                                       <div class="form-group mb-4">
                                         <label for="exampleFormControlSelect1">Expected delivery Date/time</label>
                                         <select class="form-control" name="expected" id="exampleFormControlSelect1">
-                                            <option value="1 day - 1 week">1 day - 1 week</option>
-                                            <option value="2 weeks or more">2 weeks or more</option>
-                                            <option value="1 month or more">1 month or more</option>
+                                            <option value="1 day">1 day</option>
+                                            <option value="2 days">2 days</option>
+                                            <option value="3 days">3 days</option>
+                                              <option value="4 days">4 days</option>
+                                            <option value="5 days">5 days</option>
+                                            <option value="6 days">6 days</option>
+
+                                            <option value="7 days">7 days</option>
+                                            <option value="8 days">8 days</option>
+                                              <option value="9 days">9 days</option>
+                                            <option value="10 days">10 days</option>
+                                            <option value="11 days">11 days</option>
+
+                                             <option value="12 days">12 days</option>
+                                            <option value="13 days">13 days</option>
+                                              <option value="14 days">14 days</option>
+                                            <option value="15 days">15 days</option>
+                                            <option value="16 days">16 days</option>
+
+                                              <option value="17 days">17 days</option>
+                                            <option value="18 days">18 days</option>
+                                              <option value="19 days">19 days</option>
+                                            <option value="20 days">20 days</option>
+                                            <option value="21 days">21 days</option>
+
+                                                 <option value="22 days">22 days</option>
+                                            <option value="23 days">23 days</option>
+                                              <option value="24 days">24 days</option>
+                                            <option value="25 days">25 days</option>
+                                            <option value="26 days">26 days</option>
+                                            <option value="27 days">27 days</option>
+                                              <option value="28 days">28 days</option>
+                                            <option value="29 days">29 days</option>
+                                            <option value="30 days">30 days</option>
                                         </select>
                                     </div>
                                       <div class="form-group mb-4">
@@ -305,16 +346,19 @@ mysqli_close($link);
                                         <input type="text" class="form-control"  id="maxval"
                                             aria-describedby="maxval" name="scountry" >
                                     </div>
-                                    <div class="form-group">
-                                    <label>Seller Bitcoin Address(Wallet to send funds when transaction is complete)</label>
-                                        <input type="text" class="form-control"  id="maxval"
-                                            aria-describedby="maxval" name="sbitcoin" >
+                                     <div class="form-group mb-4">
+                                        <label for="exampleFormControlSelect1">Seller payment Method</label>
+                                        <select class="form-control" name="smethod" id="exampleFormControlSelect1">
+                                            <option value="Bitcoin">Bitcoin</option>
+                                            <option value="Paypal">Paypal</option>
+                                        </select>
                                     </div>
                                      <div class="form-group">
-                                    <label>Seller Paypal Address(Paypal email to send funds when transaction is complete)</label>
+                                    <label>seller address to receive funds</label>
                                         <input type="Email" class="form-control"  id="maxval"
-                                            aria-describedby="maxval" name="spaypal" >
+                                            aria-describedby="maxval" name="saddress" >
                                     </div>
+
                                        <div class="form-group">
                                          <label>Description, Full Address and Phone Number</label>
                                         <textarea class="form-control" name="description" rows="3" placeholder="Text Here..."></textarea>

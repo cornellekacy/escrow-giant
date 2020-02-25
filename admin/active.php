@@ -75,12 +75,17 @@ $test = $_SESSION['username'];
                   <td> <?php echo $row["payment"] ?></td>
 
                  
-                  <td><a class="btn btn-primary" href="pay.php?id=<?php echo $row["transaction_id"]; ?>">
+                      <td><a class="btn btn-primary" href="opendispute.php?id=<?php echo $row["transaction_id"]; ?>">
                     <i class="glyphicon glyphicon-trash icon-white"></i>
-                    Make Payment
+                    Dispute
                   </a>
                 </td>
-                  <td><a class="btn btn-danger" href="deleteinactive.php?id=<?php echo $row["transaction_id"]; ?>">
+                   <td><a class="btn btn-success" href="approve.php?id=<?php echo $row["transaction_id"]; ?>">
+                    <i class="glyphicon glyphicon-trash icon-white"></i>
+                    Finalize
+                  </a>
+                </td>
+                  <td><a class="btn btn-danger" href="deleteactive.php?id=<?php echo $row["transaction_id"]; ?>">
                     <i class="glyphicon glyphicon-trash icon-white"></i>
                     Delete
                   </a>
