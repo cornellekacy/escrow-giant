@@ -69,7 +69,7 @@ $test = $_SESSION['username'];
                                             <tr>
                   <td><?php echo $row["trans_id"] ?></td>
                   <td> <?php echo $row["name"] ?></td>
-                  <td>$<?php echo $row["price"] ?></td>
+                  <td><?php echo $row["currency"] ?> <?php echo $row["price"] ?></td>
                   <td> <?php echo $row["email"] ?></td>
                   <td><?php echo $row["expected"] ?></td>
                   <td> <?php echo $row["payment"] ?></td>
