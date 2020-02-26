@@ -90,7 +90,7 @@ mysqli_close($link);
                     <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Open Dispute</h4>
-                                <p>Disputes are open when ar task is not completed on the set date and time or goods are not delivered on the initial agreement. By opening a dispute, you are asking Escrow Giant to refund back your funds. submite the form bellow to open a new dispute</p>
+                                <p>Disputes are open when your task is not completed on the set date and time or goods are not delivered on the initial agreement. By opening a dispute, you are asking Escrow Giant to refund back your funds. submite the form below to open a new dispute</p>
                                 <form class="mt-4" method="post">
                                     <div class="form-group">
                                     

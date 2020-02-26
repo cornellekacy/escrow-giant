@@ -59,7 +59,7 @@
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
                         <!-- Logo icon -->
-                        <a href="index.html">
+                        <a href="index.php">
                             <b class="logo-icon">
                                 <!-- Dark Logo icon -->
                                 <img src="logo1.png" alt="Escrow-Giant" height="80" width="220" class="dark-logo" />
@@ -91,7 +91,7 @@
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-left mr-auto ml-3 pl-1">
                         <!-- Notification -->
-                   <li class="sidebar-item"> Account Balance <strong style="color; blue;">$<?php
+                   <li class="sidebar-item"> Account Balance <strong style="color; blue;"><?php
              include 'conn.php';
 // Check connection
              if (!$link) {

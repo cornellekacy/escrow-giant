@@ -73,7 +73,7 @@ if($_GET['id']) {
                    </div> 
                    <div class="col-md-6">
                        <h2 align="center">Bitcoin</h2>
-                       <p>Here is Our Bitcoin Wallet Address: <strong style="font-size: 25px; color: #000"><?php
+                       <p>Here is Our Bitcoin Wallet Address: <br> <strong style="font-size: 25px; color: #000"><?php
              include 'conn.php';
 // Check connection
              if (!$link) {
@@ -107,6 +107,7 @@ if($_GET['id']) {
           echo number_format($convertedCost, 8). " BTC"; ?></b> 
                        <br><hr><br>
                        <h2 align="center">PayPal</h2>
+                       <p>Payment through PayPal most be done through Family and Friends, for our system to accept it on Escrow in few minutes. We don't accept payment through Goods and Services because it might take days and we don't want to put Both parties(Buyer/Seller) at Risk.</p>
                        <p>Here is Our Paypal Email Address: <strong style="font-size: 25px; color: #000"><?php
              include 'conn.php';
 // Check connection
@@ -219,7 +220,7 @@ $mail->Password = "escrowgiant45";
 ?>
                             <div class="card-body">
                                 <h4 class="card-title">Upload Screenshot</h4>
-                                <h6 class="card-subtitle">Upload a screenshot of the payment and send to us. Once we see the screenshot and confirm the payment, you escrow transaction will be activated
+                                <h6 class="card-subtitle">Upload a screenshot of the payment and send to us. Once we see the screenshot and confirm the payment, your escrow transaction will be activated
                                 </h6>
                                 <form class="mt-4" method="post" enctype="multipart/form-data">
                                     <div class="input-group">

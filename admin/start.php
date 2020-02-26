@@ -284,7 +284,7 @@ mysqli_close($link);
                                     </div>
 
                                   <div class="form-group">
-                                    <label>Buyer Refund Address</label>
+                                    <label>Buyer Refund Address(bitcoin or paypal)</label>
                                         <input type="text" class="form-control"  name="baddress" 
                                             aria-describedby="maxval" name="baddress" >
                                     </div> 
