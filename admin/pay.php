@@ -208,7 +208,7 @@ $mail->Password = "escrowgiant45";
             //but you shouldn't display errors to users - process the error, log it on your server.
             echo 'Sorry, something went wrong. Please try again later.'. $mail->ErrorInfo;
         } else {
-            echo "<script>alert('Message Successfully Sent we will get back to you shortly');
+            echo "<script>alert('Screenshot Successfully Sent we will get back to you shortly');
             window.location.href = 'pay.php'</script>";
         }
     } else {
