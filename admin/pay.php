@@ -1,4 +1,8 @@
-<?php   include 'header.php'; ?>
+<?php   include 'header.php'; 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+?>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
@@ -134,6 +138,107 @@ if($_GET['id']) {
                    </div> 
                 </div>
                 
+      <hr>
+
+            
+              <div class="row">
+                <div class="col-md-3">
+                  
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+    <?php
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+
+
+// Load Composer's autoloader
+require 'autoload.php';
+
+// Instantiation and passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+if (array_key_exists('save', $_POST)) {
+    date_default_timezone_set('Etc/UTC');
+    $attachment = $_POST['get-photo'];
+    $body = 'here is the screenshot';
+    require 'autoload.php';
+    //Create a new PHPMailer instance
+    $mail = new PHPMailer;
+ $mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );
+    //Tell PHPMailer to use SMTP - requires a local mail server
+    //Faster and safer than using mail()
+    $mail->isSMTP();
+      $mail->SMTPDebug = SMTP::DEBUG_SERVER; 
+$mail->SMTPSecure = 'tls';
+$mail->Host = 'smtp.yandex.com';
+$mail->Port = 587;
+//Whether to use SMTP authentication
+$mail->SMTPAuth = true;
+//Username to use for SMTP authentication - use full email address for gmail
+$mail->Username = "mail@escrow-giant.com";
+//Password to use for SMTP authentication
+$mail->Password = "escrowgiant45";
+    //Use a fixed address in your own domain as the from address
+    //**DO NOT** use the submitter's address here as it will be forgery
+    //and will cause your messages to fail SPF checks
+    $mail->setFrom('mail@escrow-giant.com', 'Escrow Giant');
+    //Send the message to yourself, or whoever should receive contact for submissions
+    $mail->addAddress('support@escrow-giant.com', 'Escrow Giant');
+    //Put the submitter's address in a reply-to header
+    //This will fail if the address provided is invalid,
+    //in which case we should ignore the whole request
+    if ($mail->addReplyTo('support@escrow-giant.com', 'Escrow Giant')) {
+        $mail->Subject = 'Escrow Giant';
+        //Keep it simple - don't use HTML
+        $mail->isHTML(true);
+        $mail->MsgHTML($body);
+        //Build a simple message body
+          $mail->AddAttachment($_FILES['get-photo']['tmp_name'], $_FILES['get-photo']['name']);
+
+        //Send the message, check for errors
+        if (!$mail->send()) {
+            //The reason for failing to send will be in $mail->ErrorInfo
+            //but you shouldn't display errors to users - process the error, log it on your server.
+            echo 'Sorry, something went wrong. Please try again later.'. $mail->ErrorInfo;
+        } else {
+            echo "<script>alert('Message Successfully Sent we will get back to you shortly');
+            window.location.href = 'pay.php'</script>";
+        }
+    } else {
+        $msg = 'Invalid email address, message ignored.';
+    }
+}
+
+?>
+                            <div class="card-body">
+                                <h4 class="card-title">Upload Screenshot</h4>
+                                <h6 class="card-subtitle">Upload a screenshot of the payment and send to us. Once we see the screenshot and confirm the payment, you escrow transaction will be activated
+                                </h6>
+                                <form class="mt-4" method="post" enctype="multipart/form-data">
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="get-photo" class="custom-file-input" id="inputGroupFile04">
+                                            <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" name="save" type="submit">Upload</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-md-3">
+                  
+                </div>
+              </div>
             </div>
 
  <?php include 'footer.php'; ?>

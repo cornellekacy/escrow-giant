@@ -42,22 +42,8 @@
     <!--This page plugins -->
     <script src="assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="dist/js/pages/datatable/datatable-basic.init.js"></script>
-<script type="text/javascript">
-    window.onload = function() {
-      var input = document.getElementById('specify');
-      input.style.visibility = 'hidden';
-      var city = document.getElementById('city');
-      city.onchange = function () {
-          console.log('change');
-        if (city.options[city.selectedIndex].value == 2) {
-        input.style.visibility = 'visible';
-         } else {
-             console.log('else');
-        input.style.visibility = 'hidden';
-     }
-    }
-    }
-</script>
+
+
 </body>
 
 
