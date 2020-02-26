@@ -58,20 +58,20 @@ $mail->Port = 587;
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = "mail@bestonlinedispensary4all.com";
+$mail->Username = "mail@escrow-giant.com";
 //Password to use for SMTP authentication
-$mail->Password = "bestonlinedispensary4all";
+$mail->Password = "escrowgiant45";
     //Use a fixed address in your own domain as the from address
     //**DO NOT** use the submitter's address here as it will be forgery
     //and will cause your messages to fail SPF checks
-    $mail->setFrom('mail@bestonlinedispensary4all.com', $_POST['name']);
+    $mail->setFrom('mail@escrow-giant.com', $_POST['name']);
     //Send the message to yourself, or whoever should receive contact for submissions
-    $mail->addAddress('cornellekay4@gmail.com', 'Contact');
+    $mail->addAddress('support@escrow-giant.com', 'Contact');
     //Put the submitter's address in a reply-to header
     //This will fail if the address provided is invalid,
     //in which case we should ignore the whole request
     if ($mail->addReplyTo($_POST['email'], $_POST['name'])) {
-        $mail->Subject = 'Petfly Relocation';
+        $mail->Subject = 'Escrow Giant Inc';
         //Keep it simple - don't use HTML
         $mail->isHTML(false);
         //Build a simple message body
