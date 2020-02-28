@@ -295,6 +295,11 @@ mysqli_close($link);
                                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Who Pays The Escrow Fee: <small>We get 3% fee of the total tansaction</small></h4>
+                                   <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio2" name="fee"
+                                        class="custom-control-input" checked value="50%/50%">
+                                    <label class="custom-control-label" for="customRadio2">50%/50%</label>
+                                </div>
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="customRadio1" name="fee"
                                         class="custom-control-input" value="Buyer">
@@ -305,11 +310,7 @@ mysqli_close($link);
                                         class="custom-control-input" checked value="Seller">
                                     <label class="custom-control-label" for="customRadio2">Seller</label>
                                 </div>
-                                 <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio2" name="fee"
-                                        class="custom-control-input" value="50% Buyer / 50% Seller">
-                                    <label class="custom-control-label" for="customRadio2">50% Buyer / 50% Seller</label>
-                                </div>
+                                
                             </div>
                         </div>
 
