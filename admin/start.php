@@ -307,7 +307,7 @@ mysqli_close($link);
                                 </div>
                                  <div class="custom-control custom-radio">
                                     <input type="radio" id="customRadio2" name="fee"
-                                        class="custom-control-input" checked value="50% Buyer / 50% Seller">
+                                        class="custom-control-input" value="50% Buyer / 50% Seller">
                                     <label class="custom-control-label" for="customRadio2">50% Buyer / 50% Seller</label>
                                 </div>
                             </div>

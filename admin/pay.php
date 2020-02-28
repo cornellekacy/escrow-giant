@@ -78,7 +78,7 @@ if($_GET['id']) {
                     <img src="bitcoin.jpg" height="200">
                     </div>
                        <h2 align="center">Bitcoin</h2>
-                       <p>Here is Our Bitcoin Wallet Address: <br> <strong style="font-size: 18px; color: #000"><?php
+                       <p>Here is Our Bitcoin Wallet Address: <br> <strong style="font-size: 15px; color: #000"><?php
              include 'conn.php';
 // Check connection
              if (!$link) {
