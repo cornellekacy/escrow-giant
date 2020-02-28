@@ -310,6 +310,11 @@ mysqli_close($link);
                                         class="custom-control-input" checked value="Seller">
                                     <label class="custom-control-label" for="customRadio2">Seller</label>
                                 </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio2" name="fee"
+                                        class="custom-control-input" checked value="Seller">
+                                    <label class="custom-control-label" for="customRadio2">Seller</label>
+                                </div>
                                 
                             </div>
                         </div>
