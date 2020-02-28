@@ -44,7 +44,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                 <p style="color: red">In-Active Transactions, please make payent to activate transaction</p>
+                                 <p style="color: red">In-Active Transactions, please make payment to activate transaction</p>
                                 <div class="table-responsive">
                                     <table id="multi_col_order"
                                         class="table table-striped table-bordered display no-wrap" style="width:100%">
