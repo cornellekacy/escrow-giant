@@ -64,8 +64,10 @@ if(isset($_POST['save'])){
  $price = mysqli_real_escape_string($link,$_POST['price']);
 
  $bmethod = mysqli_real_escape_string($link,$_POST['bmethod']);
- $baddress = mysqli_real_escape_string($link,$_POST['paypalemail']);
+ $baddress = mysqli_real_escape_string($link,$_POST['baddress']);
+  $fee = mysqli_real_escape_string($link,$_POST['fee']);
  $expected = mysqli_real_escape_string($link,$_POST['expected']);
+  $ifnotcompleted = mysqli_real_escape_string($link,$_POST['ifnotcompleted']);
 
  $payment = mysqli_real_escape_string($link,$_POST['payment']);
   $trn_date = mysqli_real_escape_string($link,$_POST['trn_date']);
@@ -100,8 +102,8 @@ else{
     $me = rand();
     $status = 'inactive';
 // Attempt insert query execution
-    $sql = "INSERT INTO transaction (trans_id,name,username,country,email,who,what,currency,price,bmethod,baddress,expected,payment,trn_date,sellername,sellercountry,smethod,saddress,descript,status) 
-    VALUES ('$me','$name','$username','$country','$email','$who','$what','$currency','$price','$bmethod','$baddress','$expected','$payment','$trn_date','$sellername','$sellercountry','$smethod','$saddress','$description','$status')";
+    $sql = "INSERT INTO transaction (trans_id,name,username,country,email,who,what,currency,price,bmethod,baddress,payfee,expected,ifnotcompleted,payment,trn_date,sellername,sellercountry,smethod,saddress,descript,status) 
+    VALUES ('$me','$name','$username','$country','$email','$who','$what','$currency','$price','$bmethod','$baddress','$fee','$expected','$ifnotcompleted','$payment','$trn_date','$sellername','$sellercountry','$smethod','$saddress','$description','$status')";
     if(mysqli_query($link, $sql)){
         echo "<div class='alert alert-success'>
         <strong>Success!</strong> Transaction Successfully Created.
@@ -178,6 +180,7 @@ $mail->Password = "escrowgiant45";
                      <strong>Amount to pay</strong>: $price<br>
                      <strong>Delivery date</strong>: $country<br>
                      <strong>Payment Method</strong>: $payment<br>
+                     <strong>3% Escrow Fee is paid by</strong>: $fee<br>
                     <br><br>
 
 
@@ -289,6 +292,27 @@ mysqli_close($link);
                                             aria-describedby="maxval" name="baddress" >
                                     </div> 
 
+                                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Who Pays The Escrow Fee: <small>We get 3% fee of the total tansaction</small></h4>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio1" name="fee"
+                                        class="custom-control-input" value="Buyer">
+                                    <label class="custom-control-label" for="customRadio1">Buyer</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio2" name="fee"
+                                        class="custom-control-input" checked value="Seller">
+                                    <label class="custom-control-label" for="customRadio2">Seller</label>
+                                </div>
+                                 <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio2" name="fee"
+                                        class="custom-control-input" checked value="50% Buyer / 50% Seller">
+                                    <label class="custom-control-label" for="customRadio2">50% Buyer / 50% Seller</label>
+                                </div>
+                            </div>
+                        </div>
+
 
 
                            
@@ -332,6 +356,15 @@ mysqli_close($link);
                                             <option value="30 days">30 days</option>
                                         </select>
                                     </div>
+                                          <div class="form-group mb-4">
+                                        <label for="exampleFormControlSelect1">If Not Completed</label>
+                                        <select class="form-control" name="ifnotcompleted" id="exampleFormControlSelect1">
+                                            <option value="Open Despute">Open Despute</option>
+                                            <option value="Extend for 1days">Extend for 1days</option>
+                                            <option value="Extend for 1week">Extend for 1week</option>
+                                              <option value="Extend for 1month">Extend for 1month</option>
+                                        </select>
+                                    </div>
                                       <div class="form-group mb-4">
                                         <label for="exampleFormControlSelect1">Payment Method</label>
                                         <select class="form-control" name="payment" id="exampleFormControlSelect1">
@@ -362,7 +395,7 @@ mysqli_close($link);
                                         </select>
                                     </div>
                                      <div class="form-group">
-                                    <label>seller address to receive funds</label>
+                                    <label>seller address to receive funds(Bitcoin or Paypal)</label>
                                         <input type="text" class="form-control"  id="maxval"
                                             aria-describedby="maxval" name="saddress" >
                                     </div>

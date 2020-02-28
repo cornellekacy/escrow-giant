@@ -48,6 +48,21 @@ if($_GET['id']) {
                    
                 </div>
             </div>
+            <?php 
+$myNumber =  $data["price"];
+ 
+//I want to get 25% of 928.
+$percentToGet = 3;
+ 
+//Convert our percentage value into a decimal.
+$percentInDecimal = $percentToGet / 100;
+ 
+//Get the result.
+$percent = $percentInDecimal * $myNumber;
+ 
+//Print it out - Result is 232.
+echo $percent;
+             ?>
 
                 
                 <div class="row">
@@ -72,8 +87,11 @@ if($_GET['id']) {
                        
                    </div> 
                    <div class="col-md-6">
+                    <div align="center">
+                    <img src="bitcoin.jpg" height="200">
+                    </div>
                        <h2 align="center">Bitcoin</h2>
-                       <p>Here is Our Bitcoin Wallet Address: <br> <strong style="font-size: 25px; color: #000"><?php
+                       <p>Here is Our Bitcoin Wallet Address: <br> <strong style="font-size: 18px; color: #000"><?php
              include 'conn.php';
 // Check connection
              if (!$link) {
@@ -97,15 +115,32 @@ if($_GET['id']) {
 
           mysqli_close($link);
           ?></strong></p>
-                       <p>bitcoin You Will Pay <b><?php echo $data["currency"];?> <?php echo $data["price"] ?> = <?php $url = "https://blockchain.info/stats?format=json";
+                       <p>bitcoin You Will Pay <b><?php echo $data["currency"];?> <?php echo $data["price"] ?> + <?php echo $data["currency"];?> <?php 
+$myNumber =  $data["price"];
+ 
+//I want to get 25% of 928.
+$percentToGet = 3;
+ 
+//Convert our percentage value into a decimal.
+$percentInDecimal = $percentToGet / 100;
+ 
+//Get the result.
+$percent = $percentInDecimal * $myNumber;
+ 
+//Print it out - Result is 232.
+echo $percent;
+             ?> Fee = <?php $url = "https://blockchain.info/stats?format=json";
           $stats = json_decode(file_get_contents($url), true);
           $btcValue = $stats['market_price_usd'];
-          $usdCost =   $data["price"];
+          $usdCost =   $data["price"]+ $percent;
 
           $convertedCost = $usdCost / $btcValue;
 
           echo number_format($convertedCost, 8). " BTC"; ?></b> 
                        <br><hr><br>
+                       <div align="center">
+                    <img src="paypal.png" height="200">
+                    </div>
                        <h2 align="center">PayPal</h2>
                        <p>Payment through PayPal most be done through Family and Friends, for our system to accept it on Escrow in few minutes. We don't accept payment through Goods and Services because it might take days and we don't want to put Both parties(Buyer/Seller) at Risk.</p>
                        <p>Here is Our Paypal Email Address: <strong style="font-size: 25px; color: #000"><?php
@@ -132,7 +167,21 @@ if($_GET['id']) {
 
           mysqli_close($link);
           ?></strong></p>
-                       <p>Paypal You Will Pay <b><?php echo $data["currency"];?> <?php echo $data["price"];?></b></p>
+                       <p>Paypal You Will Pay <b><?php echo $data["currency"];?> <?php echo $data["price"];?> + <?php echo $data["currency"];?><?php 
+$myNumber =  $data["price"];
+ 
+//I want to get 25% of 928.
+$percentToGet = 3;
+ 
+//Convert our percentage value into a decimal.
+$percentInDecimal = $percentToGet / 100;
+ 
+//Get the result.
+$percent = $percentInDecimal * $myNumber;
+ 
+//Print it out - Result is 232.
+echo $percent;
+             ?> = <?php echo $data["currency"];?> <?php echo $data["price"]+$percent;?></b></p>
                    </div> 
                    <div class="col-md-3">
                        

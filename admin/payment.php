@@ -39,9 +39,15 @@
                        
                    </div> 
                    <div class="col-md-6">
+                        <div align="center">
+                    <img src="bitcoin.jpg" height="200">
+                    </div>
                        <h2 align="center">Bitcoin</h2>
                        <p>Escrow Giant accept bitcoin as a payment method. Bitcoin is one of the fastest growing payment method and we give a very easy way to use it for payment. Both buyers and sellers are required to use bitcoin as a payment method</p>
                        <br><hr><br>
+                           <div align="center">
+                    <img src="paypal.png" height="200">
+                    </div>
                        <h2 align="center">PayPal</h2>
                        <p>Escrow Giant also accepts paypal as a payment method. You can start you transaction with your paypal money. We make the payment easy swift. </p>
                    </div> 
