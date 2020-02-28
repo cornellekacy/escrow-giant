@@ -48,21 +48,8 @@ if($_GET['id']) {
                    
                 </div>
             </div>
-            <?php 
-$myNumber =  $data["price"];
- 
-//I want to get 25% of 928.
-$percentToGet = 3;
- 
-//Convert our percentage value into a decimal.
-$percentInDecimal = $percentToGet / 100;
- 
-//Get the result.
-$percent = $percentInDecimal * $myNumber;
- 
-//Print it out - Result is 232.
-echo $percent;
-             ?>
+     
+
 
                 
                 <div class="row">
