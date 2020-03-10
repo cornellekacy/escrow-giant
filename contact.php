@@ -138,14 +138,14 @@ EOT;
           <div class="media contact-info">
             <span class="contact-info__icon"><i class="ti-home"></i></span>
             <div class="media-body">
-              <h3>Buttonwood, California.</h3>
-              <p>Rosemead, CA 91770</p>
+              <h3>Los Angeles, </h3>
+              <p>California, USA</p>
             </div>
           </div>
           <div class="media contact-info">
             <span class="contact-info__icon"><i class="ti-tablet"></i></span>
             <div class="media-body">
-              <h3>00 (440) 9865 562</h3>
+              <h3>+1 323 379 4784</h3>
               <p>Mon to Fri 9am to 6pm</p>
             </div>
           </div>
